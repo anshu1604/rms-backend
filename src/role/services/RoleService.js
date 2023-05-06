@@ -33,6 +33,27 @@ class RoleService {
             return sendServerError(this.response, 'Internal Server Error');
         }
     }
+
+    async list(){
+        try {
+
+            const roles = await Role.find();
+
+            const rolesDataToSend = [];
+
+            roles.map((item) => {
+                rolesDataToSend.push({
+                    id: item._id,
+                    roleName: item.name,
+            });
+        });
+
+            return sendResponse(this.response, "Roles List", rolesDataToSend);
+
+        } catch(err){
+            console.log(err);
+        }
+    }
 }
 
 export default RoleService;

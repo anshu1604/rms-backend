@@ -17,6 +17,14 @@ class RoleController {
             console.log(err);
         }
     }
+
+    static list(req, res) {
+        try {
+            new RoleService(req, res).list();
+        } catch (err) {
+            console.log(err);
+        }
+    }
 }
 
 export default RoleController;

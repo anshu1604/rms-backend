@@ -7,4 +7,7 @@ const roleRouter = express.Router();
 // create role route
 roleRouter.post("/role/create", Validations.createRoleValidation(), RoleController.create);
 
+// roles list route
+roleRouter.get("/role/", RoleController.list);
+
 export default roleRouter;
